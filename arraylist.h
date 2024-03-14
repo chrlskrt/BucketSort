@@ -13,6 +13,19 @@ class ArrayList {
 		array = new int[cap];
 	}
 	
+	void add(int num) {
+		array[size] = num;
+		size++;	
+	}
+
+	int _size() {
+		return size;
+	}
+	
+	int get(int index) {
+		return array[index];
+	}
+	
 	void insertionSort(){
 		int key, j;
 		for (int i = 1; i < size; i++){
@@ -26,20 +39,6 @@ class ArrayList {
 
 			array[j+1] = key;
 		}
-	}
-
-	
-	void add(int num) {
-		array[size] = num;
-		size++;	
-	}
-
-	int _size() {
-		return size;
-	}
-	
-	int get(int index) {
-		return array[index];
 	}
 	
 	void print() {
