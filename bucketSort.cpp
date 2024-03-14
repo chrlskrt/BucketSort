@@ -33,11 +33,17 @@ int main (){
 }
 
 void bucketSort(int* arr, int n){
-    // create 10 buckets
+    /* create 10 buckets 
+    /* could be any number of buckets, depending on what you want/need */
     ArrayList* buckets[10];
+    /* bucket 0: 0-9      bucket 5: 50-59 
+    /* bucket 1: 10-19    bucket 6: 60-69 
+    /* bucket 2: 20-29    bucket 7: 70-79 
+    /* bucket 3: 30-39    bucket 8: 80-89 
+    /* bucket 4: 40-49    bucket 9: 90-99   */
 
     for (int i = 0; i < 10; i++){
-        // initializing each bucket to hold n number of elements
+        /* initializing each bucket to hold n number of elements */
         buckets[i] = new ArrayList(n);
     }
 
@@ -51,6 +57,10 @@ void bucketSort(int* arr, int n){
 
     // for each bucket, do sorting
     for (ArrayList* bucket: buckets){
+        /* for proof lang nga asa sila na buckets nakabutang */
+        bucket -> print();
+
+        /* SORT */
         bucket -> insertionSort();
     }
 
@@ -62,10 +72,14 @@ void bucketSort(int* arr, int n){
             arr[new_index++] = bucket->get(i);
         }
     }
-    // // create 10 buckets with size n
+    
+
+    /* bucket sort using 2d array for buckets 
+    /* create 10 buckets with size n */
+
     // int buckets[10][n];
 
-    // // array to keep track of each bucket size
+    /* int array to keep track of each bucket size */
     // int *bucketSizes = (int*) calloc(10, sizeof(int));
 
     // for (int i = 0; i < n; i++){
