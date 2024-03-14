@@ -55,9 +55,12 @@ void bucketSort(int* arr, int n){
         buckets[bucketIndex] -> add(arr[i]);
     }
 
+    int i = 0;
     // for each bucket, do sorting
     for (ArrayList* bucket: buckets){
         /* for proof lang nga asa sila na buckets nakabutang */
+        cout << "BUCKET " << i << " | ";
+        i++;
         bucket -> print();
 
         /* SORT */
