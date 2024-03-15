@@ -75,11 +75,16 @@ void bucketSort(int* arr, int n, int k){
 	/* int array to keep track of each bucket size */
     int *bucketSizes = (int*) calloc(k, sizeof(int));
 
-	/*  */
+	/* sorting each element into different buckets */
     for (int i = 0; i < n; i++){
+
+        /* determing which bucket i-put ang element */
         int bucketIndex = ((arr[i] - min + range) / range) - 1;
+
+        /* for checking */
         cout << "bucket index for " << arr[i] << " : " << bucketIndex << endl; 
 
+        /* getting the index of where we place the element in the bucket */
         int bucketSize = bucketSizes[bucketIndex];
 
         buckets[bucketIndex][bucketSize] = arr[i]; 
@@ -98,10 +103,12 @@ void bucketSort(int* arr, int n, int k){
 		cout << endl;
 	}
 
+    /* sorting each bucket using insertion */
     for(int i = 0; i < k; i++){
         insertion_sort(buckets[i], bucketSizes[i]);
     }
 
+    /* concatenating elements from sorted buckets */
     int new_arr_index = 0;
     for (int i = 0; i < k; i++){
         for (int j = 0; j < bucketSizes[i]; j++){
@@ -110,6 +117,7 @@ void bucketSort(int* arr, int n, int k){
     }
 }
 
+/* BUCKET SORT with automatic 10 buckets */
 //void bucketSort(int* arr, int n){
 //    /* create 10 buckets 
 //    /* could be any number of buckets, depending on what you want/need */
